@@ -33,13 +33,14 @@ const renderApp = ui => {
 
 beforeAll(() => { server.listen() })
 afterAll(() => { server.close() })
-beforeEach(() => { renderApp(<Router><App /></Router>) })
+beforeEach(() => { renderApp(<App />) })
 afterEach(() => { server.resetHandlers() })
 
 describe('Sprint 7 Challenge Codegrade Tests', () => {
   describe('App routing', () => {
     test('[1] <App /> Renders without crashing', () => {
-      // screen.debug()
+      
+      //screen.debug()
     })
     test('[2] The <a>Home</a> and <a>Order</a> links navigate to "/" and "/order"', () => {
       expect(document.location.pathname).toBe('/')

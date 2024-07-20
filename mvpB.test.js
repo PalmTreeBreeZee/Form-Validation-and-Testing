@@ -14,7 +14,31 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [4] sum('1', 2) // returns 3
     [5] sum('10', '3') // returns 13
   */
+  test('throws an error saying pass valid numbers', () => {
+    expect(()=> sum()).toThrow()
+    
+  })
 
+  test('throws an error pass valid numbers if it is a word', () => {
+    expect(()=>sum()).toThrowError('pass valid numbers')
+  })
+
+  test('returns as 4', () => {
+    const expected = 4
+    const actual = sum(2, 2)
+    expect(actual).toBe(expected)
+  })
+
+  test('return as 3', () => {
+    const expected = 3
+    const actual = sum(1, 2)
+    expect(actual).toBe(expected)
+  })
+  test('returns as 13', () =>{
+    const expected = 13
+    const actual = sum(7, 6)
+    expect(actual).toBe(expected)
+  })
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
 
@@ -29,8 +53,32 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
   */
-  test('you can comment out this test', () => {
-    expect(true).toBe(false)
+  // test('you can comment out this test', () => {
+  //   expect(true).toBe(false)
+  // })
+  it('renders a link that reads (Home)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('Home', { exact: false })).toBeInTheDocument()
+  })
+  it('renders a link that reads (About)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('About', { exact: false })).toBeInTheDocument()
+  })
+  it('renders a link that reads (Blog)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('Blog', { exact: false })).toBeInTheDocument()
+  })
+  it('renders a link that reads (The Truth)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('The Truth', { exact: false })).toBeInTheDocument()
+  })
+  it('renders a link that reads (Javascript is pretty awesome)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('Javascript is pretty awesome', { exact: false })).toBeInTheDocument()
+  })
+  it('renders a link that reads (Javascript is pretty)', ()=> {
+    render(<HelloWorld />)
+    expect(screen.queryByText('Javascript is pretty', { exact: false })).toBeInTheDocument()
   })
 })
 

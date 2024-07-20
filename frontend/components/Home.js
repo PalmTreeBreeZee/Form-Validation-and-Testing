@@ -1,6 +1,7 @@
 import React from 'react'
 import pizza from './images/pizza.jpg'
 
+
 function Home() {
   return (
     <div>
@@ -8,7 +9,9 @@ function Home() {
         Welcome to Bloom Pizza!
       </h2>
       {/* clicking on the img should navigate to "/order" */}
+      <a href= ''>
       <img alt="order-pizza" style={{ cursor: 'pointer' }} src={pizza} />
+      </a>
     </div>
   )
 }
