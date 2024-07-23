@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './Home'
 import Form from './Form'
+
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
       <BrowserRouter>
       <nav>
         {/* NavLinks here */}
-        <Link to="/" class='active'>Home</Link>
+        <Link to="/" class=''>Home</Link>
         <Link to="order" class=''>Order</Link>
+        
       </nav>
       {/* Route and Routes here */}
       <Routes>
