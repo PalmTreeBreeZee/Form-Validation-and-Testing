@@ -57,29 +57,29 @@ export default function Form() {
   const [serverFailure, setServerFailure] = useState()
    // value = type === 'checkbox' ? checked : value
  const handleChange = (evt) => {
-    const { name, value, checked, type } = evt.target;
+    const { id, value, checked, type, name } = evt.target;
     
       if (type === "checkbox") {
         setValues({
             ...values,
             toppings: checked
-                ? [...values.toppings, value]
-                : values.toppings.filter((topping) => topping !== value)})
+                ? [...values.toppings, name]
+                : values.toppings.filter((topping) => topping !== name)})
       
-        } else if (name === 'fullName' || name === 'size'){
-          Yup.reach(schema, name)
+        } else if (id === 'fullName' || id === 'size'){
+          Yup.reach(schema, id)
           .validate(value)
           .then(() => {
-              setErrors({ ...errors, [name]: "" });
+              setErrors({ ...errors, [id]: "" });
              
             })
             .catch((err) => {
               
-              setErrors({ ...errors, [name]: err.errors[0] });
+              setErrors({ ...errors, [id]: err.errors[0] });
             });
       
           setValues({
-          ...values, [name] : value
+          ...values, [id] : value
         })
       
     } 
@@ -132,7 +132,6 @@ export default function Form() {
           <input   
             id= 'fullName'
             type="text"
-            name='fullName'
             placeholder="Type Full Name"
             onChange={handleChange}
             value={values.fullName}/>
@@ -143,7 +142,7 @@ export default function Form() {
       <div className="input-group">
         <div>
           <label htmlFor="size">Size</label><br />
-          <select id="size" onChange={handleChange} value= {values.size} name= 'size'>
+          <select id="size" onChange={handleChange} value= {values.size}>
             <option value="">----Choose Size----</option>
             <option value="S">Small</option>
             <option value="M">Medium</option>
@@ -160,9 +159,8 @@ export default function Form() {
         
         toppings.map(topping => <label key= {topping.topping_id}>
             <input
-            name={topping.text}
+            name={topping.topping_id}
             type="checkbox"
-            value= {topping.topping_id}
             onChange={handleChange}
             checked= {values.toppings.includes(topping.topping_id)}
           />
