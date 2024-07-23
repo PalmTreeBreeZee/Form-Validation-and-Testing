@@ -58,27 +58,29 @@ describe('Sprint 7 Challenge Learner Tests', () => {
   // })
   it('renders a link that reads (Home)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('Home', { exact: false })).toBeInTheDocument()
+    expect(screen.queryByText('Home')).toBeInTheDocument()
+
   })
   it('renders a link that reads (About)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('About', { exact: false })).toBeInTheDocument()
+    expect(screen.queryByText('About')).toBeInTheDocument()
   })
   it('renders a link that reads (Blog)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('Blog', { exact: false })).toBeInTheDocument()
+    expect(screen.queryByText('Blog')).toBeInTheDocument()
   })
   it('renders a link that reads (The Truth)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('The Truth', { exact: false })).toBeInTheDocument()
+    expect(screen.queryByText('The Truth')).toBeVisible()
   })
-  it('renders a link that reads (Javascript is pretty awesome)', ()=> {
+  it('renders a link that reads (JavaScript is pretty awesome)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('Javascript is pretty awesome', { exact: false })).toBeInTheDocument()
+    screen.debug()
+    expect(screen.queryByText('JavaScript is pretty awesome')).toBeVisible()
   })
   it('renders a link that reads (Javascript is pretty)', ()=> {
     render(<HelloWorld />)
-    expect(screen.queryByText('Javascript is pretty', { exact: false })).toBeInTheDocument()
+    expect(screen.queryByText('javaScript is pretty', { exact: false })).toBeInTheDocument()
   })
 })
 
